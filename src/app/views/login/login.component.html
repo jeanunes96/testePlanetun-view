@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="content">
+        <h1>Login</h1>
+        <mat-form-field>
+            <mat-label>Login</mat-label>
+            <input matInput [(ngModel)]="login">
+        </mat-form-field>
+          <br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input type="password" matInput [(ngModel)]="password">
+        </mat-form-field>
+
+        <span class="message">{{message}}</span>
+        <button mat-button color="green" (click)="enter(login, password)">Login</button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+
+    <mat-toolbar>
+      <span>Teste Planetun Web</span>
+    </mat-toolbar>
+
+
+<div class="header">
+    <h1>Inspections</h1>
+    <button aria-label="New Inspection" (click)="openDialog(null)">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<div class ="table">
+
+    <table mat-table #table [dataSource]="inspections" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="companyId">
+          <th mat-header-cell *matHeaderCellDef> Company Id </th>
+          <td mat-cell *matCellDef="let inspections"> {{inspections.companyId}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="brokerCode">
+          <th mat-header-cell *matHeaderCellDef> Broker Code </th>
+          <td mat-cell *matCellDef="let inspections"> {{inspections.brokerCode}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productCode">
+          <th mat-header-cell *matHeaderCellDef> Product Code </th>
+          <td mat-cell *matCellDef="let inspections"> {{inspections.productCode}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef> Product Name </th>
+          <td mat-cell *matCellDef="let inspections"> {{inspections.productName}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="inspectionNumber">
+            <th mat-header-cell *matHeaderCellDef> InspectionNumber </th>
+            <td mat-cell *matCellDef="let inspections"> {{inspections.inspectionNumber}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let inspections"> 
+                <button mat-icon-button (click)="updateInspection(inspections)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deleteInspection(inspections.companyId)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+</div>
+  

@@ -1,0 +1,28 @@
+<h1 *ngIf="!isChange" mat-dialog-title>New Inspection</h1>
+<h1 *ngIf="isChange" mat-dialog-title>Update Inspection</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Broker Code</mat-label>
+    <input matInput [(ngModel)]="data.brokerCode">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Product Code</mat-label>
+    <input matInput [(ngModel)]="data.productCode">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Product Name</mat-label>
+    <input matInput [(ngModel)]="data.productName">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Inspection Number</mat-label>
+    <input matInput [(ngModel)]="data.inspectionNumber">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button *ngIf="!isChange" mat-button [mat-dialog-close]="data" color="green" cdkFocusInitial>Register</button>
+  <button *ngIf="isChange" mat-button [mat-dialog-close]="data" color="green" cdkFocusInitial>Update</button>
+</div>
